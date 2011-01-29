@@ -104,8 +104,13 @@ class jTag(jBase):
     pass 
 
   def index(self):
-    url = 'http://'+'api.jamendo.com/get2/id+name+weight+rating/tag/json?n=50&order=rating_desc'
-    return self.normalize_obj(self.fetch(url))
+    try:
+      data = json.load(open('cachedtags.json'))
+      return self.normalize_obj(data)
+    except Exception, e:
+      print e
+      url = 'http://'+'api.jamendo.com/get2/id+name+weight+rating/tag/json?n=50&order=rating_desc'
+      return self.normalize_obj(self.fetch(url))
 
   def list_time(self, tag):
     return self.normalize_obj([{'name': 'this-week'}, {'name': 'this-month'}, {'name': 'all-time'}])
@@ -130,7 +135,7 @@ class jTag(jBase):
     print 'list_songs',  tag, ftime, album
     if not album in cache:
       # try harder
-      self.dispatcher.dispatch('/tag/%s/%s', tag, ftime)
+      self.dispatcher.dispatch('/tag/%s/%s' % (tag, ftime))
       
     if not album in cache:
       print "album not in cache"
