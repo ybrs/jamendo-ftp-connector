@@ -1,7 +1,7 @@
 An FTP interface to [Jamendo](http://www.jamendo.com/) music.
 =============================================================
 
-If you are on windows and install [ftpdrive](http://www.killprog.com/fdrve.html) too and mount it as a harddrive, you suddenly can access a huge disk with tons of music. (see it in action http://vimeo.com/19317287 )
+If you are on windows and install [ftpdrive](http://www.killprog.com/fdrve.html) too and mount it as a harddrive, you suddenly can access a huge disk with tons of music. (see it in action [vimeo](http://vimeo.com/19317287) )
 
 
 Instructions:
